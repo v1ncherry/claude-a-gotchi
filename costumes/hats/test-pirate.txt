@@ -1,0 +1,18 @@
+# Test file for the pull request preview. Not meant to be merged.
+type: hat
+id: test-pirate
+name: Pirate hat
+name.de: Piratenhut
+author: v1ncherry
+at: -9, -5
+mirror: none
+colors:
+  K = #1f1f24
+  W = #f4f4f4
+pixels:
+  ......KKKKKK......
+  ....KKKKKKKKKK....
+  ...KKKKKWWKKKKK...
+  ..KKKKKKWWKKKKKK..
+  .KKKKKKKKKKKKKKKK.
+  KKKKKKKKKKKKKKKKKK

@@ -1,0 +1,10 @@
+# Test file with mistakes on purpose, to see the error picture. Not meant to be merged.
+type: hat
+id: test-broken
+at: -4
+colors:
+  R = #d23b3b
+pixels:
+  ..RR..
+  .RRRRX
+  RRRR
