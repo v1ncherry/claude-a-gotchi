@@ -1,0 +1,24 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: hat
+id: party
+name: Party hat
+name.de: Partyhut
+author: claude-a-gotchi
+order: 10
+at: -5, -9
+mirror: none
+colors:
+  P = #e25c9a
+  Y = #ffd84a
+  W = #ffffff
+pixels:
+  ....WW....
+  ....WW....
+  ....PP....
+  ...PPYP...
+  ...PYPP...
+  ..PPPPYP..
+  ..PYPPPP..
+  .PPPPYPPP.
+  .PPYPPPPP.
+  PPPPPPPYPP

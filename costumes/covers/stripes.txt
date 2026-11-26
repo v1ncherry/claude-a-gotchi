@@ -1,0 +1,15 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: cover
+id: stripes
+name: Green stripes
+name.de: Grün gestreift
+author: claude-a-gotchi
+order: 30
+base: #3f9d6b
+band: #8fd1ac
+colors:
+  B = #8fd1ac
+pixels:
+  ..
+  BB
+  ..

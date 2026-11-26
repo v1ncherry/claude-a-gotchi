@@ -1,0 +1,37 @@
+name: Release
+
+# Push a tag like v1.2.3 and this builds the installer and the zip and publishes them as a GitHub release.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress -y
+      - name: Build installer and zip
+        shell: pwsh
+        run: ./tools/build.ps1 -Version "${{ github.ref_name }}"
+      - name: Publish release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $version = $tag.TrimStart("v")
+          $notes = @"
+          Download **claude-a-gotchi-$version-setup.exe** and run it. Windows may warn that the installer is not signed: click *More info → Run anyway*.
+          Prefer no installer? Use the **win-x64.zip** and start claude-a-gotchi.exe.
+
+          Unofficial fan project, not affiliated with Anthropic.
+          "@
+          gh release create $tag (Get-ChildItem dist/*$version*).FullName --title "claude-a-gotchi $version" --notes $notes --generate-notes

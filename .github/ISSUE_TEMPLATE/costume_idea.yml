@@ -1,0 +1,24 @@
+name: Costume idea
+description: A hat, outfit, color, cover or pillow you would like to see (or want to make)
+labels: [costume]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: What kind of costume?
+      options: [Hat, Outfit, Body color, Blanket cover, Pillow]
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Describe it
+      description: A sketch or a pixel grid helps a lot. You can also paste a finished costume file.
+    validations:
+      required: true
+  - type: checkboxes
+    id: self
+    attributes:
+      label: Want to make it yourself?
+      options:
+        - label: Yes, I will open a pull request (see CONTRIBUTING.md)

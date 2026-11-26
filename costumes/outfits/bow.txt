@@ -1,0 +1,17 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: outfit
+id: bow
+name: Bow tie
+name.de: Fliege
+author: claude-a-gotchi
+order: 20
+at: -3, 9
+mirror: none
+layer: front
+colors:
+  R = #c0392b
+  K = #8e2a20
+pixels:
+  R....R
+  RRKKRR
+  R....R

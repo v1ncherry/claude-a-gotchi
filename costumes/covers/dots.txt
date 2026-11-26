@@ -1,0 +1,18 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: cover
+id: dots
+name: Blue dots
+name.de: Blau gepunktet
+author: claude-a-gotchi
+order: 10
+base: #4f6bd8
+band: #8aa0ee
+colors:
+  D = #3a52b0
+pixels:
+  ......
+  ...D..
+  ......
+  ......
+  D.....
+  ......

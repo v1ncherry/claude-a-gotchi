@@ -1,0 +1,20 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: hat
+id: crown
+name: Crown
+name.de: Krone
+author: claude-a-gotchi
+order: 40
+at: -7, -5
+mirror: none
+colors:
+  G = #f2c230
+  R = #d33a3a
+  B = #3aa0ff
+pixels:
+  G.....GG.....G
+  GG...GGGG...GG
+  GGG.GGRRGG.GGG
+  GGGGGGGGGGGGGG
+  GBGGGRGGRGGGBG
+  GGGGGGGGGGGGGG

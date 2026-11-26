@@ -1,0 +1,8 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: color
+id: rose
+name: Pink
+name.de: Rosa
+author: claude-a-gotchi
+order: 50
+body: #e58fb0

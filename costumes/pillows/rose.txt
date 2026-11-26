@@ -1,0 +1,9 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: pillow
+id: rose
+name: Pink
+name.de: Rosa
+author: claude-a-gotchi
+order: 30
+main: #f6c9d8
+shade: #d99ab0

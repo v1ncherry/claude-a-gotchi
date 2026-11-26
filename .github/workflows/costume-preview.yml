@@ -1,0 +1,51 @@
+name: Costume preview
+
+# Step 1 of 2: renders every costume file a pull request adds or changes into a picture.
+# Runs without write access (pull requests from forks are untrusted). Step 2 (costume-preview-comment.yml)
+# takes the pictures and posts them as a comment.
+on:
+  pull_request:
+    paths: ["costumes/**"]
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Build
+        run: dotnet build src/claude-a-gotchi -c Release -o build/ci --nologo -v q
+      - name: Render changed costumes
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force preview | Out-Null
+          "${{ github.event.pull_request.number }}" | Set-Content preview/pr.txt -NoNewline
+          $files = git diff --name-only --diff-filter=AM "${{ github.event.pull_request.base.sha }}" HEAD -- costumes |
+                   Where-Object { $_ -match '^costumes/[a-z]+/[A-Za-z0-9._-]+\.txt$' } | Select-Object -First 20
+          $failed = 0
+          foreach ($f in $files) {
+            $parts = $f.Split('/')
+            $safe = ($parts[1] + "__" + [IO.Path]::GetFileNameWithoutExtension($f)).ToLower() -replace '[^a-z0-9_-]', '-'
+            $tmp = "preview/tmp.png"
+            & build/ci/claude-a-gotchi.exe --preview $f $tmp | Out-Host
+            $status = if ($LASTEXITCODE -eq 0) { "ok" } else { "bad"; $failed++ }
+            if (Test-Path $tmp) { Move-Item $tmp "preview/${status}__$safe.png" -Force }
+          }
+          & build/ci/claude-a-gotchi.exe --check . | Out-Host
+          if ($LASTEXITCODE -ne 0) { $failed++ }
+          "$failed" | Set-Content preview/failed.txt -NoNewline
+      - uses: actions/upload-artifact@v4
+        with:
+          name: costume-preview
+          path: preview
+          retention-days: 7
+      - name: Fail if a costume has problems
+        shell: pwsh
+        run: if ((Get-Content preview/failed.txt) -ne "0") { Write-Error "Some costume files have problems, see the preview pictures."; exit 1 }

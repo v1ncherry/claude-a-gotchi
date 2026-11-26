@@ -1,0 +1,18 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: outfit
+id: glasses
+name: Glasses
+name.de: Brille
+author: claude-a-gotchi
+order: 40
+at: -7, 1
+mirror: none
+layer: face
+in-bed: yes
+colors:
+  F = #2b2b33
+pixels:
+  FFFF......FFFF
+  F..FFFFFFFF..F
+  F..F......F..F
+  FFFF......FFFF

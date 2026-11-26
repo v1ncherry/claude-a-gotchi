@@ -1,0 +1,18 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: hat
+id: cap
+name: Cap
+name.de: Cap
+author: claude-a-gotchi
+order: 60
+at: -7, -3
+mirror: left
+colors:
+  R = #d8433b
+  W = #ffffff
+  K = #a8302a
+pixels:
+  ...RRRRRRRR.........
+  .RRRRRRRRRRRR.......
+  RRRRRRWRRRRRRR......
+  RRRRRRRRRRRRRRKKKKKK

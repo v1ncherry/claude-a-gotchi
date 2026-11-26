@@ -1,0 +1,22 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: hat
+id: phones
+name: Headphones
+name.de: Kopfhörer
+author: claude-a-gotchi
+order: 80
+at: -10, -3
+mirror: none
+colors:
+  K = #2a2a2a
+  C = #3a3a3a
+  A = #5ad1ff
+pixels:
+  ....KKKKKKKKKKKK....
+  ..KK............KK..
+  .K................K.
+  CCC..............CCC
+  CAC..............CAC
+  CAC..............CAC
+  CAC..............CAC
+  CCC..............CCC

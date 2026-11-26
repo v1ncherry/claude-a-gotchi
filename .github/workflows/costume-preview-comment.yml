@@ -1,0 +1,77 @@
+name: Costume preview comment
+
+# Step 2 of 2: posts the pictures from "Costume preview" on the pull request.
+# This runs with write access, so it never runs code from the pull request: it only reads
+# the uploaded PNG files and the PR number, and checks both before using them.
+on:
+  workflow_run:
+    workflows: ["Costume preview"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.event == 'pull_request'
+    steps:
+      - name: Download pictures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download "${{ github.event.workflow_run.id }}" -n costume-preview -D preview -R "${{ github.repository }}"
+      - name: Publish pictures and comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN: ${{ github.event.workflow_run.id }}
+        run: |
+          set -euo pipefail
+          pr=$(cat preview/pr.txt)
+          [[ "$pr" =~ ^[0-9]{1,7}$ ]] || { echo "bad PR number"; exit 1; }
+
+          # Keep only well-named, real PNG files of a sane size.
+          mkdir -p clean
+          for f in preview/*.png; do
+            [ -e "$f" ] || continue
+            name=$(basename "$f")
+            [[ "$name" =~ ^(ok|bad)__[a-z0-9_-]{1,80}\.png$ ]] || continue
+            [ "$(stat -c %s "$f")" -lt 2000000 ] || continue
+            [ "$(head -c 8 "$f" | od -An -tx1 | tr -d ' \n')" = "89504e470d0a1a0a" ] || continue
+            cp "$f" "clean/$name"
+          done
+          count=$(ls clean | wc -l)
+          [ "$count" -gt 0 ] || { echo "nothing to show"; exit 0; }
+
+          # Store the pictures on the "costume-previews" branch so the comment can show them.
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          url="https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          if git clone --depth 1 --branch costume-previews "$url" store 2>/dev/null; then :; else
+            git init -q store && git -C store checkout -q --orphan costume-previews && git -C store remote add origin "$url"
+          fi
+          mkdir -p "store/pr-$pr/$RUN"
+          cp clean/*.png "store/pr-$pr/$RUN/"
+          git -C store add -A
+          git -C store commit -q -m "Costume preview for #$pr"
+          git -C store push -q origin costume-previews
+
+          {
+            echo "### 🦀 Costume preview"
+            echo
+            for f in clean/*.png; do
+              name=$(basename "$f" .png)
+              status=${name%%__*}; rest=${name#*__}
+              label="${rest/__//}"
+              if [ "$status" = "ok" ]; then mark="✅"; else mark="❌ has problems"; fi
+              echo "**costumes/${label}.txt** ${mark}"
+              echo
+              echo "![${label}](https://raw.githubusercontent.com/${REPO}/costume-previews/pr-${pr}/${RUN}/${name}.png)"
+              echo
+            done
+            echo "<sub>Rendered by claude-a-gotchi --preview. Push a new commit and this comment updates.</sub>"
+          } > body.md
+
+          gh pr comment "$pr" -R "$REPO" --body-file body.md --edit-last 2>/dev/null || gh pr comment "$pr" -R "$REPO" --body-file body.md

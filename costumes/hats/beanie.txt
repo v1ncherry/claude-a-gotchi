@@ -1,0 +1,22 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: hat
+id: beanie
+name: Beanie
+name.de: Mütze
+author: claude-a-gotchi
+order: 30
+at: -8, -5
+mirror: none
+colors:
+  B = #3d6fd8
+  L = #2f58b5
+  l = #6f95e8
+  W = #f4f4f4
+pixels:
+  ......WWWW......
+  ......WWWW......
+  ....BBBBBBBB....
+  ..BBBBBBBBBBBB..
+  .BBBBBBBBBBBBBB.
+  LlLlLlLlLlLlLlLl
+  LlLlLlLlLlLlLlLl

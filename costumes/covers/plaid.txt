@@ -1,0 +1,17 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: cover
+id: plaid
+name: Red plaid
+name.de: Rot kariert
+author: claude-a-gotchi
+order: 20
+base: #c0392b
+band: #e8857a
+colors:
+  B = #e8857a
+  D = #8e2a20
+pixels:
+  ..B..
+  ..B..
+  DDDDD
+  ..B..

@@ -1,0 +1,19 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: outfit
+id: scarf
+name: Scarf
+name.de: Schal
+author: claude-a-gotchi
+order: 10
+at: -9, 10
+mirror: right
+layer: front
+colors:
+  R = #d23b3b
+  W = #f5f0e6
+pixels:
+  RRWWRRWWRRWWRRWWRR
+  WRRWWRRWWRRWWRRWWR
+  ............RR....
+  ............WW....
+  ............RR....

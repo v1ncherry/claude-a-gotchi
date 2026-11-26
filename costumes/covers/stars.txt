@@ -1,0 +1,18 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: cover
+id: stars
+name: Starry sky
+name.de: Sternenhimmel
+author: claude-a-gotchi
+order: 40
+base: #263066
+band: #4b5aa8
+colors:
+  Y = #ffd84a
+pixels:
+  ........Y.....
+  ..Y...........
+  .YYY..........
+  ..Y........Y..
+  .....Y........
+  ..............

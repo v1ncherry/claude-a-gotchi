@@ -1,0 +1,25 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: hat
+id: wizard
+name: Wizard hat
+name.de: Zauberhut
+author: claude-a-gotchi
+order: 50
+at: -8, -10
+mirror: left
+colors:
+  P = #6b4bd1
+  Y = #ffd84a
+  D = #4a32a0
+pixels:
+  ............PP..
+  ...........PPP..
+  ..........PPP...
+  .........PPPP...
+  ........PPYPP...
+  .......PPPPPP...
+  ......PPPPYPPP..
+  .....PPYPPPPPP..
+  ...PPPPPPPPPP...
+  ..PPPYPPPPPPPP..
+  DDDDDDDDDDDDDDDD

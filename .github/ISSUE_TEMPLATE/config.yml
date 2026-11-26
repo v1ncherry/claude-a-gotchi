@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How to make a costume
+    url: https://github.com/v1ncherry/claude-a-gotchi/blob/main/CONTRIBUTING.md#costume-files
+    about: The costume file format, the coordinate map and how to send one in.

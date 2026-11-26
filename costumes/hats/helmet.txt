@@ -1,0 +1,19 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: hat
+id: helmet
+name: Hard hat
+name.de: Bauhelm
+author: claude-a-gotchi
+order: 70
+at: -9, -4
+mirror: none
+colors:
+  Y = #f4c20d
+  W = #ffe680
+  O = #d49b00
+pixels:
+  .....YYYWWYYY.....
+  ...YYYYYWWYYYYY...
+  ..YYYYYYWWYYYYYY..
+  .YYYYYYYWWYYYYYYY.
+  OOOOOOOOOOOOOOOOOO

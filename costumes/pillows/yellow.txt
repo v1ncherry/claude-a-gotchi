@@ -1,0 +1,9 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: pillow
+id: yellow
+name: Yellow
+name.de: Gelb
+author: claude-a-gotchi
+order: 40
+main: #f8e7a6
+shade: #d9c370

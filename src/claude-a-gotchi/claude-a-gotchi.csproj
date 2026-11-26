@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AssemblyName>claude-a-gotchi</AssemblyName>
+    <RootNamespace>ClaudeAGotchi</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <TieredPGO>true</TieredPGO>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>1.0.0</Version>
+    <Product>claude-a-gotchi</Product>
+    <Description>A tiny pixel desk pet for Claude Code</Description>
+    <Copyright>MIT License, v1ncherry</Copyright>
+    <ApplicationIcon>..\..\assets\icon.ico</ApplicationIcon>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <!-- Costumes and translations live in the repository root and are built into the program. -->
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\costumes\**\*.txt" LogicalName="costumes/%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="..\..\lang\*.json" LogicalName="lang/%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

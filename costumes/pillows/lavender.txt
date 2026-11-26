@@ -1,0 +1,9 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: pillow
+id: lavender
+name: Lavender
+name.de: Lavendel
+author: claude-a-gotchi
+order: 10
+main: #dcd7f3
+shade: #b4acdc

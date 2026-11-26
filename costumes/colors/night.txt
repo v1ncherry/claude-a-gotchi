@@ -1,0 +1,8 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: color
+id: night
+name: Night
+name.de: Nacht
+author: claude-a-gotchi
+order: 20
+body: #5b6b8c

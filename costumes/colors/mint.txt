@@ -1,0 +1,8 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: color
+id: mint
+name: Mint
+name.de: Minze
+author: claude-a-gotchi
+order: 30
+body: #5fb39a

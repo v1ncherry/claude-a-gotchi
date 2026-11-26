@@ -1,0 +1,21 @@
+# claude-a-gotchi costume. How these files work: CONTRIBUTING.md
+type: cover
+id: claude
+name: Claude orange
+name.de: Claude-Orange
+author: claude-a-gotchi
+order: 60
+base: #b8553a
+band: #e48a6a
+colors:
+  B = #e48a6a
+  D = #ffd2c0
+pixels:
+  ........
+  ...B....
+  ..BDB...
+  ...B....
+  ........
+  .......B
+  B.....BD
+  .......B
